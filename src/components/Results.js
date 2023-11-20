@@ -58,7 +58,7 @@ export default function Results() {
           datasets: [
             { label:"number of votes",
               data: votes,
-              backgroundColor: "rgb(43,24,155)",
+              backgroundColor: "#ffd700",
             },
           ],
         });
