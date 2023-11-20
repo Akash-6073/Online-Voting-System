@@ -1,5 +1,7 @@
 import Axios from "axios";
 import {Link} from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function AdminListRow(props)
 {
     const {_id,name,username,phonenumber,email,address,password} = props.obj; //Object destruction
@@ -8,8 +10,21 @@ function AdminListRow(props)
         Axios.delete("http://localhost:5000/AdminsRoute/delete-Admin/" + _id )
         .then((res)=>{
             if(res.status === 200){
-                alert("Record deleted successfully");
-                window.location.reload();
+                // alert("Record deleted successfully");
+                // window.location.reload();
+                toast.success('Deleted Successfully', {
+                    position: "bottom-right",
+                    autoClose: 1000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                    });
+                 setTimeout(()=>{
+                     window.location.reload();
+                 },1000)
             }
             else
                 Promise.reject();
@@ -18,6 +33,19 @@ function AdminListRow(props)
     }
    
     return(
+        <>
+         <ToastContainer
+                   position="bottom-right"
+                   autoClose={1000}
+                   hideProgressBar={false}
+                   newestOnTop={false}
+                   closeOnClick
+                   rtl={false}
+                   pauseOnFocusLoss
+                   draggable
+                   pauseOnHover
+                   theme="light"
+                   />
         <tr class="text-center">
             <td>{name}</td>
             <td>{username}</td>
@@ -30,6 +58,7 @@ function AdminListRow(props)
                 <span style={{cursor:"pointer"}} onClick={handleClick} class=""><i class="fa-solid fa-trash-can"></i></span>
             </td>
         </tr>
+        </>
     )
 }
 export default  AdminListRow;

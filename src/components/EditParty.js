@@ -3,6 +3,8 @@ import AddParty from "./AddParty";
 import { useEffect, useState } from "react";
 import Axios  from "axios";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function EditParty()
 {
     const navigate=useNavigate();
@@ -16,6 +18,8 @@ function EditParty()
             if(res.status === 200){
                 const {PartyName,CandidateName,Symbol,Image} = res.data;
                 setInitialValue({PartyName,CandidateName,Symbol,Image});
+
+
             }
             else
                 Promise.reject();
@@ -32,8 +36,20 @@ function EditParty()
         Axios.put("http://localhost:5000/PartiesRoute/update-Party/"+id,data)
         .then((res)=>{
             if(res.status === 200){
-                alert("Record updated successfully")
-                navigate("/Admin/PartyList/"+id);
+
+                toast.success('Updated Successfully', {
+                    position: "bottom-right",
+                    autoClose: 1000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                    });
+                 setTimeout(()=>{
+                    navigate("/Admin/PartyList/"+id);
+                 },1500)
             }
             else
                 Promise.reject();
@@ -51,6 +67,18 @@ function EditParty()
                         >
                         Update Party's Data
                         </AddParty>
+                        <ToastContainer
+                    position="bottom-right"
+                    autoClose={1000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="light"
+                    />
         </form>
     )
 }

@@ -2,6 +2,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import AddAdmin from "./AddAdmin";
 import { useEffect, useState } from "react";
 import Axios  from "axios";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function EditAdmin()
 {
@@ -32,10 +34,33 @@ function EditAdmin()
         .then((res)=>{
             if(res.status === 200 && id === "6557101be0f629991186bd0f"){
                 alert("Record updated successfully")
+
+                    toast.success('Record Updated Successfully', {
+                        position: "bottom-right",
+                        autoClose: 1000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "light",
+                        });
+                    setTimeout(()=>{
                     navigate("/Admin/AdminsList/"+id)
+                    },1500)
             }
             else if(res.status === 200 ){
-                alert("Record updated successfully")
+                // alert("Record updated successfully")
+                toast.success('Record Updated Successfully', {
+                    position: "bottom-right",
+                    autoClose: 1000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                    });
             }
             else
                 Promise.reject();
@@ -54,6 +79,18 @@ function EditAdmin()
                         >
                         Update  Data
                         </AddAdmin>
+             <ToastContainer
+                    position="bottom-right"
+                    autoClose={1000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="light"
+                    />
         </form>
     )
 }

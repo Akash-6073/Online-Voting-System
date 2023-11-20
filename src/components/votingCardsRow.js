@@ -1,5 +1,6 @@
-
 import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function VotingCardsRow(props) {
   const { Id, obj } = props;
@@ -15,7 +16,21 @@ function VotingCardsRow(props) {
       .post("http://localhost:5000/ISVotedRoute/AddIsvoted", data)
       .then((response) => {
         console.log("Vote submitted successfully!");
+
+          toast.success('Your submitted Succesfully', {
+            position: "bottom-right",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            });
+          setTimeout(()=>{
         window.location.reload();
+
+      },1000)
       })
       .catch((error) => {
         console.error("Error submitting vote:", error, _id);
@@ -38,6 +53,18 @@ function VotingCardsRow(props) {
           <button onClick={() => handleClick(PartyName)} className="btn btn-warning" style={{color:"white"}}>
           <i class="fa-solid fa-computer-mouse"></i>  Click to Vote
           </button>
+          <ToastContainer
+            position="bottom-right"
+            autoClose={1000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+            />
         </div>
       </div>
     </div>

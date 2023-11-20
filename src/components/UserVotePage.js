@@ -26,9 +26,9 @@ function UserVotePage(props) {
     <div>
       
       {isIdPresent ? (
-        <div className="votpageFamily" style={{opacity:"0.5"}}>
+        <div className="votpageFamily mb-5" style={{opacity:"0.5"}}>
           <h3 className="container mt-4 text-center" style={{fontWeight:"bold"}} >You have already voted for party "{PartyVotedfor}".</h3>
-        <h3 className="container mt-4 text-center blink" style={{fontWeight:"bold"}} >ThankYou!!!</h3>
+        <h3 className="container mt-4 text-center blink" style={{fontWeight:"bold"}} >Thank You!!!</h3>
         </div>
         
 

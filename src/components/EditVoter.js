@@ -2,7 +2,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import AddVoter from "./AddVoter";
 import { useEffect, useState } from "react";
 import Axios  from "axios";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function EditVoter()
 {
     const navigate=useNavigate();
@@ -31,8 +32,19 @@ function EditVoter()
         Axios.put("http://localhost:5000/VoterListRoute/update-Voter/"+id,data)
         .then((res)=>{
             if(res.status === 200){
-                alert("Record updated successfully")
+                toast.success('Updated Successfully', {
+                    position: "bottom-right",
+                    autoClose: 1000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                    });
+                setTimeout(()=>{
                 navigate("/Admin/VoterList/"+id);
+                },1500)
             }
             else
                 Promise.reject();
@@ -51,6 +63,18 @@ function EditVoter()
                         >
                         Update Voter's Data
                         </AddVoter>
+             <ToastContainer
+                    position="bottom-right"
+                    autoClose={1000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="light"
+                    />
         </form>
     )
 }

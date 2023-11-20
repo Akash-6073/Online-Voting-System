@@ -20,9 +20,9 @@ function index() {
                     <img src={akash} className="card-img-top img-fluid" alt="..."/>
                     <div className="card-body">
                         <h5 className="card-title" style={{fontWeight:"bold"}}>Backend</h5>
-                        <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <p className="card-text">Worked on the node js part of the project and Frontend Design using Frameworks</p>
                         <div className='ag'>
-                        <a href="#" className="btn btn-warning">Akash <i class="fa-brands fa-github"></i></a>
+                        <a href="https://github.com/Akash-6073" className="btn btn-warning">Akash <i class="fa-brands fa-github"></i></a>
                         
                         </div>
                     </div>
@@ -33,10 +33,10 @@ function index() {
 
                     <img src={dinesh} className="card-img-to img-fluid" alt="..."/>
                     <div className="card-body">
-                        <h5 className="card-title">Card title</h5>
-                        <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <h5 className="card-title">Mongo Db</h5>
+                        <p className="card-text">Worked on different schema's of the project</p>
                         <div className='ag'>
-                        <a href="#" className="btn btn-warning">Dinesh <i class="fa-brands fa-github"></i></a>
+                        <a href="https://github.com/dineshmnaidu" className="btn btn-warning">Dinesh <i class="fa-brands fa-github"></i></a>
                         
                         </div>
                     </div>
@@ -47,10 +47,10 @@ function index() {
 
                     <img src={akhil} className="card-img-top img-fluid" alt="..."/>
                     <div className="card-body">
-                        <h5 className="card-title">Card title</h5>
-                        <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <h5 className="card-title">Frontend</h5>
+                        <p className="card-text">Worked on the design part of home page and user home</p>
                         <div className='ag'>
-                        <a href="#" className="btn btn-warning">Akhil <i class="fa-brands fa-github"></i> </a>
+                        <a href="https://github.com/MahendrakarAkhil" className="btn btn-warning">Akhil <i class="fa-brands fa-github"></i> </a>
                         </div>
                     </div>
             </div>
@@ -60,10 +60,10 @@ function index() {
 
                     <img src={guru} className="card-img-top" alt="..."/>
                     <div className="card-body">
-                        <h5 className="card-title">Card title</h5>
-                        <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <h5 className="card-title">Backend</h5>
+                        <p className="card-text">Worked on the node js part and a bit fronted of the project</p>
                         <div className='ag'>
-                        <a href="#" className="btn btn-warning">Guru Sameer <i class="fa-brands fa-github"></i></a>
+                        <a href="https://github.com/DUDYALAGURUSAMEER" className="btn btn-warning">Guru Sameer <i class="fa-brands fa-github"></i></a>
                         
                         </div>
                     </div>
@@ -74,10 +74,10 @@ function index() {
 
                     <img src={user} className="card-img-top" alt="..."/>
                     <div className="card-body">
-                        <h5 className="card-title">Card title</h5>
-                        <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <h5 className="card-title">Frontend</h5>
+                        <p className="card-text">worked on the fronted design of the admin page</p>
                         <div className='ag'>
-                        <a href="#" className="btn btn-warning">Varish <i class="fa-brands fa-github"></i></a>
+                        <a href="https://github.com/Varish28" className="btn btn-warning">Varish <i class="fa-brands fa-github"></i></a>
                         
                         </div>
                     </div>

@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import Navbar from "./Navbar.js";
 import Foot from "./foot.js";
 import { useTypewriter ,Cursor } from 'react-simple-typewriter'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function LoginPage() {
@@ -41,9 +43,31 @@ function LoginPage() {
 
           if (foundAdmin) {
             console.log("id is: " + foundAdmin._id);
-            window.location.href = window.location.origin+"/#/Admin/Home/" + foundAdmin._id;
+            toast.success('Logged in Successfully', {
+              position: "top-center",
+              autoClose: 1000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+              });
+              setTimeout(()=>{
+              window.location.href = window.location.origin+"/#/Admin/Home/" + foundAdmin._id;
+          },1500)
           } else {
-            alert("Invalid admin credentials");
+            toast.error('Invalid Admin Credentials', {
+              position: "top-center",
+              autoClose: 1000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+              });
+              // alert("Invalid admin credentials");
           }
         })
         .catch((error) => {
@@ -65,9 +89,32 @@ function LoginPage() {
 
           if (foundUser) {
             console.log("id is: " + foundUser._id);
+
+            toast.success('Logged in Successfully', {
+              position: "top-center",
+              autoClose: 1000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+              });
+              setTimeout(()=>{
             window.location.href = window.location.origin+"/#/User/Home/" + foundUser._id;
+          },1500)
           } else {
-            alert("Invalid user credentials");
+            // alert("Invalid user credentials");
+            toast.error('Invalid User Credentials', {
+              position: "top-center",
+              autoClose: 1000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+              });
           }
         })
         .catch((error) => {
@@ -154,6 +201,18 @@ function LoginPage() {
           <button className="btn btn-warning" style={{color:"white"}}  onClick={handleLogin}>
             Login <i class="fa-solid fa-arrow-right-to-bracket"></i>
           </button>
+          <ToastContainer
+            position="top-center"
+            autoClose={1000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+            />
         </div>
       </div>
     </div>
