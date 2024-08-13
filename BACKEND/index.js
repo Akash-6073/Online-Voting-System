@@ -11,7 +11,7 @@ const IsVotedRoute=require("./controller/ISVotedRoute");
 const AdminsRoute=require("./controller/AdminsRoute");
 
 mongoose.set("strictQuery",true);
-mongoose.connect("mongodb+srv://mernteam:mernproject@cluster0.jvn9mmy.mongodb.net/OnlineVotingSystem");
+mongoose.connect("mongodb+srv://mernteam:Dineshvit@cluster0.jvn9mmy.mongodb.net/OnlineVotingSystem");
 var db = mongoose.connection;
 db.on("open",()=>console.log("Connected to DB"));
 db.on("error",()=>console.log("Error Occured"));

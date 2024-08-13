@@ -23,7 +23,7 @@ function Navbar() {
       </ul>
       <form className="d-flex navs" role="search">
         <Link to='/'  className={` ${location.pathname==='/' ? "locActive" : ""}`}> Home </Link>
-        <Link to='/about' className={` ${location.pathname==='/about' ? "locActive" : ""}`}> About </Link>
+        {/* <Link to='/about' className={` ${location.pathname==='/about' ? "locActive" : ""}`}> About </Link> */}
         <hr className="hr" />
        <Link to='/login' >  <button className="btn btn-outline-warning"  type="submit">Login <i class="fa-solid fa-user"></i></button> </Link>
       </form>

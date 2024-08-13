@@ -46,7 +46,7 @@ function EditAdmin()
                         theme: "light",
                         });
                     setTimeout(()=>{
-                    navigate("/Admin/AdminsList/"+id)
+                    navigate("/Admin/Profile/"+id)
                     },1500)
             }
             else if(res.status === 200 ){
@@ -61,6 +61,9 @@ function EditAdmin()
                     progress: undefined,
                     theme: "light",
                     });
+                    setTimeout(()=>{
+                        navigate("/Admin/Profile/"+id)
+                        },1500)
             }
             else
                 Promise.reject();

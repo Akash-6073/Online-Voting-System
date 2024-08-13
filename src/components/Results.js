@@ -23,7 +23,7 @@ export default function Results() {
       {
         label:"number of votes",
         data: [],
-        backgroundColor: "rgb(43,24,155)",
+        backgroundColor: "#ffd700",
       },
     ],
   });
