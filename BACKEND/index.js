@@ -1,5 +1,6 @@
 const express=require("express")
 const mongoose=require("mongoose");
+require("dotenv").config();
 const app=express()
 
 const bodyParser=require("body-parser");
@@ -11,7 +12,7 @@ const IsVotedRoute=require("./controller/ISVotedRoute");
 const AdminsRoute=require("./controller/AdminsRoute");
 
 mongoose.set("strictQuery",true);
-mongoose.connect("mongodb+srv://mernteam:Dineshvit@cluster0.jvn9mmy.mongodb.net/OnlineVotingSystem");
+mongoose.connect(process.env.MONGODB_URI);
 var db = mongoose.connection;
 db.on("open",()=>console.log("Connected to DB"));
 db.on("error",()=>console.log("Error Occured"));
