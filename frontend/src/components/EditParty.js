@@ -11,9 +11,10 @@ function EditParty()
     const {id} = useParams();
     const [initialValue, setInitialValue] = useState({PartyName:"",CandidateName:"",Symbol:"",Image:""});
     const [newData,setNewData] = useState([]);
+    const host = process.env.REACT_APP_HOST
 
     useEffect(()=>{
-        Axios.get("http://localhost:5000/PartiesRoute/update-Party/"+id)
+        Axios.get(`${host}/PartiesRoute/update-Party/`+id)
         .then((res)=>{
             if(res.status === 200){
                 const {PartyName,CandidateName,Symbol,Image} = res.data;
@@ -33,7 +34,7 @@ function EditParty()
 
     const handleSubmit = () => {
         const data = {PartyName:newData[0],CandidateName:newData[1],Symbol:newData[2],Image:newData[3]};
-        Axios.put("http://localhost:5000/PartiesRoute/update-Party/"+id,data)
+        Axios.put(`${host}/PartiesRoute/update-Party/`+id,data)
         .then((res)=>{
             if(res.status === 200){
 

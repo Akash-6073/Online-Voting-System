@@ -23,9 +23,9 @@ function CreateAdmin() {
       address: arr[4],
       password: arr[5],
     };
-  
+    const host = process.env.REACT_APP_HOST
     // Check if the username already exists
-    Axios.post("http://localhost:5000/AdminsRoute/AddAdmin", data_to_be_added)
+    Axios.post(`${host}/AdminsRoute/AddAdmin`, data_to_be_added)
       .then((res) => {
         if (res.status === 200) {
           alert("Record added successfully");

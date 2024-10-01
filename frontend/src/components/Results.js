@@ -15,6 +15,8 @@ const option = {
     },
   },
 };
+const host = process.env.REACT_APP_HOST
+
 
 export default function Results() {
   const [data, setData] = useState({
@@ -35,14 +37,14 @@ export default function Results() {
       const partyVotes = {};
 
       try {
-        const response1 = await axios.get("http://localhost:5000/PartiesRoute");
+        const response1 = await axios.get(`${host}/PartiesRoute`);
         const jsonData1 = response1.data;
         jsonData1.forEach((item) => {
           const partyName = item.PartyName;
           partyVotes[partyName] = 0;
         });
 
-        const response2 = await axios.get("http://localhost:5000/ISVotedRoute");
+        const response2 = await axios.get(`${host}/ISVotedRoute`);
         const jsonData2 = response2.data;
 
         jsonData2.forEach((item) => {

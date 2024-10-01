@@ -17,10 +17,10 @@ function AdminHome() {
   const [votersCount, setVotersCount] = useState(0);
   const [partiesCount, setPartiesCount] = useState(0);
   const [isvotedCount, setisvotedCount] = useState(0);
-
+  const host = process.env.REACT_APP_HOST
   useEffect(() => {
     // Fetch voters count
-    axios.get("http://localhost:5000/VoterListRoute/Voters-count")
+    axios.get(`${host}/VoterListRoute/Voters-count`)
       .then((response) => {
         const count = response.data.count;
         setVotersCount(count);
@@ -30,7 +30,7 @@ function AdminHome() {
         console.error("Error fetching voters count:", error);
       });
 
-    axios.get("http://localhost:5000/ISVotedRoute/Isvoted-count")
+    axios.get(`${host}/ISVotedRoute/Isvoted-count`)
       .then((response) => {
         const count = response.data.count;
         setisvotedCount(count);
@@ -41,7 +41,7 @@ function AdminHome() {
       });
 
     // Fetch parties count
-    axios.get("http://localhost:5000/PartiesRoute/Parties-count")
+    axios.get(`${host}/PartiesRoute/Parties-count`)
       .then((response) => {
         const count = response.data.count;
         setPartiesCount(count);

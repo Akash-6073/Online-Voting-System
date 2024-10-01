@@ -10,8 +10,10 @@ function VotersList(){
     const location = useLocation();
     var id = location.pathname.split("/").pop();
     const [arr,setArr] = useState([]);
+    const host = process.env.REACT_APP_HOST
+
     useEffect(()=>{
-        Axios.get("http://localhost:5000/VoterListRoute/")
+        Axios.get(`${host}/VoterListRoute/`)
         .then((res)=>{
             if(res.status===200) setArr(res.data);
             else Promise.reject();

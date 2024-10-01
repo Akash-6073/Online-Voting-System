@@ -11,6 +11,8 @@ function CreateVoter(){
     const getState=(ChildData)=>{
         setArr(ChildData);
     }
+    const host = process.env.REACT_APP_HOST
+
     const handleSubmit=(e)=>{
         e.preventDefault();
         const data_to_be_added={name:arr[0],Id:arr[1],PhoneNumber:arr[2],Address:arr[3],DateOfBirth:arr[4],Gender:arr[5]};
@@ -18,7 +20,7 @@ function CreateVoter(){
 
         //Checking Whether the Id is already Present in the Data
 
-        const url = 'http://localhost:5000/VoterListRoute';
+        const url = `${host}/VoterListRoute`;
         const idToCheck = data_to_be_added.Id; 
         if(!idToCheck.trim()){
             alert("Id must have Value")
@@ -34,7 +36,7 @@ function CreateVoter(){
             if (foundPerson) {
               alert(`ID ${idToCheck} is already present in the data.`);
             } else {
-                Axios.post("http://localhost:5000/VoterListRoute/AddVoter",data_to_be_added)
+                Axios.post(`${host}/VoterListRoute/AddVoter`,data_to_be_added)
                 .then((res)=>{
                     if(res.status===200) {
                         alert("record added successfully");

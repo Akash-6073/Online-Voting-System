@@ -7,6 +7,7 @@ import Foot from './foot'
 function UserHome() {
   const location = useLocation();
   const id = location.pathname.split("/").pop(); 
+  const host = process.env.REACT_APP_HOST
   const [userData, setUserData] = useState({
     name: "",
     Id: "",
@@ -18,7 +19,7 @@ function UserHome() {
 
   useEffect(() => {
     if (id) {
-      fetch(`http://localhost:5000/VoterListRoute/get-voter/${id}`)
+      fetch(`${host}/VoterListRoute/get-voter/${id}`)
         .then((response) => response.json())
         .then((data) => {
           if (data) { 

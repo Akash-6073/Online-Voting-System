@@ -5,9 +5,9 @@ import 'react-toastify/dist/ReactToastify.css';
 function AdminListRow(props)
 {
     const {_id,name,username,phonenumber,email,address,password} = props.obj; //Object destruction
-   
+  const host = process.env.REACT_APP_HOST
     const handleClick = () =>{
-        Axios.delete("http://localhost:5000/AdminsRoute/delete-Admin/" + _id )
+        Axios.delete(`${host}/AdminsRoute/delete-Admin/` + _id )
         .then((res)=>{
             if(res.status === 200){
                 // alert("Record deleted successfully");

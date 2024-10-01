@@ -15,7 +15,7 @@ function LoginPage() {
   const [password, setPassword] = useState("");
   const [userId, setUserId] = useState("");
   const [phno, setphno] = useState("");
-
+  const host = process.env.REACT_APP_HOST
   const [text] =useTypewriter({
     words: ['Vote','See Results','See Parties Nominated'],
     loop:{},
@@ -25,8 +25,8 @@ function LoginPage() {
 
 
   const handleLogin = () => {
-    const databaseUrl = "http://localhost:5000/AdminsRoute";
-    const votersUrl = "http://localhost:5000/VoterListRoute";
+    const databaseUrl = `${host}/AdminsRoute`;
+    const votersUrl = `${host}/VoterListRoute`;
 
     if (loginType === "admin") {
       fetch(databaseUrl)

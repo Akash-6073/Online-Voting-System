@@ -6,8 +6,9 @@ import 'react-toastify/dist/ReactToastify.css';
 function PartyListRow(props)
 {
     const {_id,PartyName,CandidateName,Symbol,Image} = props.obj; //Object destruction
+    const host = process.env.REACT_APP_HOST
     const handleClick = () =>{
-        Axios.delete("http://localhost:5000/PartiesRoute/delete-Party/" + _id )
+        Axios.delete(`${host}/PartiesRoute/delete-Party/` + _id )
         .then((res)=>{
             if(res.status === 200){
                 toast.success('Deleted Successfully', {

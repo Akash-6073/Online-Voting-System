@@ -10,11 +10,13 @@ function CreateParty(){
     const getState=(ChildData)=>{
         setArr(ChildData);
     }
+    const host = process.env.REACT_APP_HOST
+
     const handleSubmit=(e)=>{
         e.preventDefault();
         const data_to_be_added={PartyName:arr[0],CandidateName:arr[1],Symbol:arr[2],Image:arr[3]};
         
-                Axios.post("http://localhost:5000/PartiesRoute/AddParty",data_to_be_added)
+                Axios.post(`${host}/PartiesRoute/AddParty`,data_to_be_added)
                 .then((res)=>{
                     if(res.status===200) {
                         alert("record added successfully");

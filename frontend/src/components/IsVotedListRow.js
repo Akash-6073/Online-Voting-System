@@ -4,9 +4,10 @@ import 'react-toastify/dist/ReactToastify.css';
 function IsVotedListRow(props)
 {
     const {_id,Id,PartyVoted} = props.obj; //Object destruction
+    const host = process.env.REACT_APP_HOST
     
     const handleClick = () =>{
-        Axios.delete("http://localhost:5000/ISVotedRoute/delete-isvoted/" + _id )
+        Axios.delete(`${host}/ISVotedRoute/delete-isvoted/` + _id )
         .then((res)=>{
             if(res.status === 200){
                 toast.success('Deleted Successfully', {

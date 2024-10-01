@@ -5,9 +5,9 @@ import 'react-toastify/dist/ReactToastify.css';
 function VoterListRow(props)
 {
     const {_id,name,Id,PhoneNumber,Address,DateOfBirth,Gender} = props.obj; //Object destruction
-   
+    const host = process.env.REACT_APP_HOST
     const handleClick = () =>{
-        Axios.delete("http://localhost:5000/VoterListRoute/delete-Voter/" + _id )
+        Axios.delete(`${host}/VoterListRoute/delete-Voter/` + _id )
         .then((res)=>{
             if(res.status === 200){
                 toast.success('Deleted Successfully', {

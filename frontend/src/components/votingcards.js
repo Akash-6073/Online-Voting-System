@@ -5,8 +5,9 @@ import VotingCardsRow from "./votingCardsRow";
 function VotingCards(props){
     const {Id}=props;
     const [arr,setArr] = useState([]);
+    const host = process.env.REACT_APP_HOST
     useEffect(()=>{
-        Axios.get("http://localhost:5000/PartiesRoute/")
+        Axios.get(`${host}/PartiesRoute/`)
         .then((res)=>{
             if(res.status===200) setArr(res.data);
             else Promise.reject();

@@ -5,8 +5,9 @@ import AdminNav from "./AdminNav";
 import Foot from './foot'
 function IsVotedList(){
     const [arr,setArr] = useState([]);
+    const host = process.env.REACT_APP_HOST
     useEffect(()=>{
-        Axios.get("http://localhost:5000/ISVotedRoute/")
+        Axios.get(`${host}/ISVotedRoute/`)
         .then((res)=>{
             if(res.status===200) setArr(res.data);
             else Promise.reject();

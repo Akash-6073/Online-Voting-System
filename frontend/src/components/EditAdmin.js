@@ -7,12 +7,13 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function EditAdmin()
 {
+    const host = process.env.REACT_APP_HOST
     const navigate=useNavigate();
     const {id} = useParams();
     const [initialValue, setInitialValue] = useState({name:"",username:"",phonenumber:"",email:"",address:"",password:""});
     const [newData,setNewData] = useState([]);
     useEffect(()=>{
-        Axios.get("http://localhost:5000/AdminsRoute/update-Admin/"+id)
+        Axios.get(`${host}/AdminsRoute/update-Admin/`+id)
         .then((res)=>{
             if(res.status === 200){
                 const {name,username,phonenumber,email,address,password} = res.data;
@@ -30,7 +31,7 @@ function EditAdmin()
 
     const handleSubmit = () => {
         const data = {name:newData[0],username:newData[1],phonenumber:newData[2],email:newData[3],address:newData[4],password:newData[5]};
-        Axios.put("http://localhost:5000/AdminsRoute/update-Admin/"+id,data)
+        Axios.put(`${host}/AdminsRoute/update-Admin/`+id,data)
         .then((res)=>{
             if(res.status === 200 && id === "6557101be0f629991186bd0f"){
                 alert("Record updated successfully")

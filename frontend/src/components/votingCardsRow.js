@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 function VotingCardsRow(props) {
   const { Id, obj } = props;
   const { _id, PartyName, CandidateName, Symbol, Image } = obj;
-
+  const host = process.env.REACT_APP_HOST
   const handleClick = (partyName) => {
     const data = {
       Id: Id,
@@ -13,7 +13,7 @@ function VotingCardsRow(props) {
     };
     console.log("partyName: "+partyName);
     axios
-      .post("http://localhost:5000/ISVotedRoute/AddIsvoted", data)
+      .post(`${host}/ISVotedRoute/AddIsvoted`, data)
       .then((response) => {
         console.log("Vote submitted successfully!");
 

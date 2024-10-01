@@ -5,9 +5,10 @@ function UserVotePage(props) {
   const { Id } = props;
   const [isIdPresent, setIsIdPresent] = useState(true);
   const [PartyVotedfor, setPartyVoterfor] = useState("");
+  const host = process.env.REACT_APP_HOST
 
   useEffect(() => {
-    const dataUrl = "http://localhost:5000/ISVotedRoute/";
+    const dataUrl = `${host}/ISVotedRoute/`;
     fetch(dataUrl)
       .then((response) => response.json())
       .then((jsonData) => {

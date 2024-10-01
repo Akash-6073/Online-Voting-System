@@ -13,10 +13,11 @@ function AdminProfile() {
     phoneNumber: "",
     address: "",
   });
+  const host = process.env.REACT_APP_HOST
 
   useEffect(() => {
     if (id) {
-      fetch(`http://localhost:5000/AdminsRoute/get-admin/${id}`)
+      fetch(`${host}/AdminsRoute/get-admin/${id}`)
         .then((response) => response.json())
         .then((data) => {
           if (data) {

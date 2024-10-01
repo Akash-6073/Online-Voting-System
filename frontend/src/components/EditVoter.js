@@ -6,12 +6,14 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 function EditVoter()
 {
+    const host = process.env.REACT_APP_HOST
+
     const navigate=useNavigate();
     const {id} = useParams();
     const [initialValue, setInitialValue] = useState({name:"",Id:"",PhoneNumber:"",Address:"",DateOfBirth:"",Gender:""});
     const [newData,setNewData] = useState([]);
     useEffect(()=>{
-        Axios.get("http://localhost:5000/VoterListRoute/update-Voter/"+id)
+        Axios.get(`${host}/VoterListRoute/update-Voter/`+id)
         .then((res)=>{
             if(res.status === 200){
                 const {name,Id,PhoneNumber,Address,DateOfBirth,Gender} = res.data;
@@ -29,7 +31,7 @@ function EditVoter()
 
     const handleSubmit = () => {
         const data = {name:newData[0],Id:newData[1],PhoneNumber:newData[2],Address:newData[3],DateOfBirth:newData[4],Gender:newData[5]};
-        Axios.put("http://localhost:5000/VoterListRoute/update-Voter/"+id,data)
+        Axios.put(`${host}/VoterListRoute/update-Voter/`+id,data)
         .then((res)=>{
             if(res.status === 200){
                 toast.success('Updated Successfully', {
