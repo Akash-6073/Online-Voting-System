@@ -163,6 +163,7 @@ function LoginPage() {
               <input
                 type="text"
                 value={userId}
+                placeholder="5812"
                 onChange={(e) => setUserId(e.target.value)}
                 
               /></div>
@@ -171,6 +172,7 @@ function LoginPage() {
               <input
                 type="text"
                 value={phno}
+                placeholder="9999999999"
                 onChange={(e) => setphno(e.target.value)}
                 
               />
@@ -183,6 +185,7 @@ function LoginPage() {
               <input
                 type="text"
                 value={userName}
+                placeholder="Akash"
                 onChange={(e) => setUserName(e.target.value)}
               />
               </div>
@@ -191,6 +194,7 @@ function LoginPage() {
               <input
                 type="password"
                 value={password}
+                placeholder="akash"
                 onChange={(e) => setPassword(e.target.value)}
               />
               </div>
